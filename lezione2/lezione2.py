@@ -130,4 +130,21 @@ print("The original list is changed in: {}".format(cities))
 x = len(invites)
 print("The invites for the dinner are: {}".format(x))
 
+#esercizio 3-10
+
+things = ["Everest", "Tevere", "Arno", "Tulipani", "Roma"]
+things.append("Ciclamino")
+things.remove("Tevere")
+things.pop(0)
+print("Prova prime modifiche: {}".format(things))
+things.insert(2, "Mario")
+
+things.sort()
+print(f"Things in alphabetic order {things}")
+
+things.reverse()
+print(f"Things in alphabetic inverse order: {things}")
+
+
+
 #FINE ESERCIZI 2. e 3.
