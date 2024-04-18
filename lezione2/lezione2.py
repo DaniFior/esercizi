@@ -100,19 +100,34 @@ print (invites)
 #esercizio 3-8
 
 cities = ["Rome", "Paris", "Melbourne", "London", "New York"]
+print("The original list is: {}".format(cities))
+print("The list in alphabetic order is: {}".format(sorted(cities)))
+print("The list is still in the original version: {}".format(cities))
+
+#cities.sort(reverse=True)
+#print("The list in analphabetic order is: {}".format(cities))
+print(sorted(cities, reverse =True ))
 print(cities)
-print(sorted(cities))
-print(cities)
+#cities = sorted(cities)
+#print(cities)
 
 cities.reverse()
-print(cities)
+print(f"The analphabetic order with the reverse method is: {cities}")
+
 cities.reverse()
-cities = sorted(cities)
-cities.sort(reverse=True)
-print(cities)
+print(f"The original version using the reverse method: {cities}")
 
-print("La lista in ordine alfabetico é: {}".format(cities))
+cities.sort()
+print("The list in alphabetic order using the sort method() is: {}".format(cities))
 
-cities = sorted(cities)
-print(cities)
+cities.sort(reverse = True)
+print("The list in alphabetical order revers using the sort methos() is: {}".format(cities))
 
+print("The original list is changed in: {}".format(cities))
+
+#esercizio 3-9
+
+x = len(invites)
+print("The invites for the dinner are: {}".format(x))
+
+#FINE ESERCIZI 2. e 3.
