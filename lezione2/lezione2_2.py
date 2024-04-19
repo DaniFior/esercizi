@@ -73,3 +73,5 @@ for c,d in cities.items():
     print("\n{}".format(c))
     for e,f in d.items():
         print (f"{e} {f}")
+
+        
