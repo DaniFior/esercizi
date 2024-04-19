@@ -1,3 +1,5 @@
+#SPIEGAZIONE IN CLASSE
+
 x = 10
 y = 2
 s = "ciao"
