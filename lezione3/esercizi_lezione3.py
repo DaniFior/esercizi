@@ -86,6 +86,7 @@ print("The first three values in this list are: {}".format(cubo[:slice]))
 print("Three values in the middle of the list are: {}".format(cubo[2:5]))
 slice2 : int = -3
 print("The last three values in this list are: {}".format(cubo[slice2:]))
+print("\n")
 
 #esercizio 4-11 
 
@@ -100,3 +101,4 @@ print("\n")
 
 for pizza2 in pizzas :
     print("My favourite pizzas are: {}".format(pizza2))
+
