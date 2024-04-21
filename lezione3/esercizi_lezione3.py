@@ -44,3 +44,59 @@ print("\n")
 print("The biggest numer is: \t{}".format(max(number)))
 print("\n")
 print("The summary of 1 million number is: \t{}".format(sum(number)))
+print("\n")
+
+#esercizio 4-6
+
+number2 : list = [] 
+for x in range (1, 21, 2):
+    number2.append(x)
+    print(number2)
+print("\n")
+
+#esercizio 4-7
+
+three : list = []
+for x in range (3, 31, 3):
+    three.append(x)
+    print(three)
+print("\n")
+
+#esercizio 4-8
+
+for x in range (1,11):
+    risultato = x ** 3
+    print(risultato)
+print("\n")
+
+#esercizio 4-9
+
+cubo = list = []
+for x in range (1,11): 
+    risultato = x ** 3
+    cubo.append(risultato)
+print(cubo)
+print("\n")
+
+#esercizio 4-10
+
+slice : int = 3
+print("The first three values in this list are: {}".format(cubo[:slice]))
+
+print("Three values in the middle of the list are: {}".format(cubo[2:5]))
+slice2 : int = -3
+print("The last three values in this list are: {}".format(cubo[slice2:]))
+
+#esercizio 4-11 
+
+friend_pizzas : list = ["Margherita", "Capricciosa", "Boscaiola"]
+
+friend_pizzas.append("Primavera")
+pizzas.append("Marinara")
+
+for pizza1 in friend_pizzas:
+    print(f"My friend's favourite pizzas are: {pizza1}")
+print("\n")
+
+for pizza2 in pizzas :
+    print("My favourite pizzas are: {}".format(pizza2))
