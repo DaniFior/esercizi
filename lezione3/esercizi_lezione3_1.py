@@ -118,3 +118,11 @@ if not users2:
 
 #esercizio 5-10
 
+current_users : list = ["mario", "pippo", "marcello", "diabolik", "nitro"]
+new_users : list = ["lucio", "manu", "luca", "pippo", "nitro"]
+
+for x in range(len(current_users)) :
+    if current_users == new_users[x]:
+        print("Username already used")
+    else : 
+        print("Username created")
