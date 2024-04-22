@@ -90,6 +90,7 @@ elif fruit in favourite_fruits[2] :
 else : print("Sorry I don't like it")
 """
 #esercizio 5-8
+"""
 users : list = ["utente1", "utente2", "utente3", "utente4", "admin"]
 login = input("Chi sei?")
 if login == users[0]:
@@ -107,14 +108,5 @@ elif login == users[4]:
     elif password != 'ciao':
         print("Password errata!")
 else : print("Utente non valido")
-
-#FIBONACCI
-
 """
-def fibonacci_for(numero:int) -> int:
-    memoria: list = [0,1]
-    for i in range(1, numero):
-        risultato : int = memoria[i-1] + memoria[i]
-        memoria.append(risultato)
-    return memoria[-1]
-"""
+
