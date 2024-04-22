@@ -110,3 +110,11 @@ elif login == users[4]:
 else : print("Utente non valido")
 """
 
+#esercizio 5-9 
+
+users2 : list = []
+if not users2:
+    print("We need to find some users!")
+
+#esercizio 5-10
+
