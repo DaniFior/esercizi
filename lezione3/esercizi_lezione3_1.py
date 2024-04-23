@@ -111,18 +111,56 @@ else : print("Utente non valido")
 """
 
 #esercizio 5-9 
-
+"""
 users2 : list = []
 if not users2:
     print("We need to find some users!")
+"""
 
 #esercizio 5-10
-
-current_users : list = ["mario", "pippo", "marcello", "diabolik", "nitro"]
+"""
+current_users : list = ["mario", "pippo", "Luca", "lucio", "nitro"]
 new_users : list = ["lucio", "manu", "luca", "pippo", "nitro"]
 
-for x in range(len(current_users)) :
-    if current_users == new_users[x]:
-        print("Username already used")
-    else : 
-        print("Username created")
+current_min_list : list = []
+for current_min in current_users :
+    curr:str = current_min.lower()
+    current_min_list.append(curr)
+
+print(current_min_list)
+"""
+
+#usando la list comprehension
+"""
+numeri : list = []
+for i in range(1,10) :
+    i.append()
+print(numeri)
+current_min_list_2: list = [current_maiusc.lower() for current_min in current_users]
+print(current_min_list_2)
+"""
+
+"""
+for current, new in zip(current_users, new_users):
+    if new in current_users or new in current_min_list:
+        print(f"{new} already taken")
+    else:
+        print(f"{new} Available")
+"""
+#esercizio 5-11
+"""
+numeri : list = []
+for x in range(1,10):
+    numeri.append(x)
+print(numeri)
+
+for y in numeri:
+    if y == 1 :
+        print(f"{y}st")
+    elif y == 2:
+        print(f"{y}nd")
+    elif y == 3:
+        print(f"{y}rd")
+    else :
+        print(f"{y}th")
+        """
