@@ -32,9 +32,9 @@ def fib(n : int):
     """
     for i in range(2, n+1):
         c = a + b
-        #print(c, end=' ')
+        print(c, end=' ')
         a = b
         b = c
     return c
 
-fib(n = 5)
+fib(n = 100)
