@@ -128,12 +128,20 @@ def sandwich (ingredients ) :
     for i in ingredients:
         print(i, ' ', end = ' ')
     print('\n')
+    return ingredients
 
 sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
 sandwich(ingredients=['Lattuce', 'Onion', 'Ketchup'])
 sandwich(ingredients=['Mayonnaise', 'Bacon', 'Egg'])
 """
 #esercizio 8-13
-daniele : dict = [] 
-def build_profile() :
-    print()
+"""
+#daniele : dict = {"Name" : "Daniele", "Surname" : "Fioravanti", "Age" : 20, "City" : "Rome"} 
+def build_profile(daniele : dict = {"Name" : "Daniele", "Surname" : "Fioravanti", "Age" : 20, "City" : "Rome"}) :
+    for x,y in daniele.items() :
+        print(f"{x} : {y}, ", end = ' ')
+    return daniele
+build_profile()
+"""
+#esercizio 8-14
+
