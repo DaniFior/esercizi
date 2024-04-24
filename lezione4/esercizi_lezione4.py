@@ -59,7 +59,7 @@ city_country(name="Sofia", country="Bulgaria")
 city_country(name="Amsterdam", country="Netherlands") 
 """
 #esercizio 8-7
-
+"""
 def make_album(artist : str , title : str) -> str:
     album : dict = {"Title:" : title, "Artist" : artist}
     print(album)
@@ -69,6 +69,7 @@ def make_album2(artist : str , title : str, nsong : int = None) -> str:
     album : dict = {"Title:" : title, "Artist" : artist, "Track number: " : nsong}
     print(album)
     return make_album2
+"""
 """
 make_album(artist="Gemitaiz", title="Veleno 6")
 make_album(artist="Fedez",title="Bella storia")
@@ -100,7 +101,7 @@ show_messages(message)
     return message
 """
 #esercizio 8-10
-
+"""
 message : list = ["Daje Roma", "DDR Vanto Nostro", "Lazio ..."]
 
 def send_messages(message : str) -> str:
@@ -113,8 +114,26 @@ def send_messages(message : str) -> str:
     return sent_messages
 
 send_messages(message)
-
+"""
 #esercizio 8-11
+"""
 copy = send_messages(message)
 print(copy, '\n', 'Copia: {}'.format(send_messages(message)))
+"""
+#esercizio 8-12
+"""
+ingredients : list = []
+def sandwich (ingredients ) :
+    print("The sandwich that is just being order has this ingredients: ", end = ' ')
+    for i in ingredients:
+        print(i, ' ', end = ' ')
+    print('\n')
 
+sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
+sandwich(ingredients=['Lattuce', 'Onion', 'Ketchup'])
+sandwich(ingredients=['Mayonnaise', 'Bacon', 'Egg'])
+"""
+#esercizio 8-13
+daniele : dict = [] 
+def build_profile() :
+    print()
