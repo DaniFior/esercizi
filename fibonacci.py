@@ -19,22 +19,22 @@ def fibonacci(numero:int = 5) -> int :
         print(k)
     return k
 fibonacci()
-"""
+""" 
 
 def fib(n : int):
-    a = 0
-    b = 1
-    """
+    x = 0
+    y = 1
+    
     if (n >= 0):
-        print(a, end=' ')
+        print(x, end=' ')
     if (n >= 1):
-        print(b, end=' ')
-    """
+        print(y, end=' ')
+    
     for i in range(2, n+1):
-        c = a + b
-        print(c, end=' ')
-        a = b
-        b = c
-    return c
+        z = x + y
+        print(z, end=' ')
+        x = y
+        y = z
+    return z
 
-fib(n = 100)
+fib(n = 2)
