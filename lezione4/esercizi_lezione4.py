@@ -50,14 +50,14 @@ describe_city(city = "Sofia", country="Bulgaria")
 """
 #esercizio 8-6 e ESERCIZIO 8-17
 """
-from esercizio8_6 import city_country
+from functions.esercizio8_6 import city_country
 city_country(name="Rome", country="Italy")
 city_country(name="Sofia", country="Bulgaria")
 city_country(name="Amsterdam", country="Netherlands") 
 """
 #esercizio 8-7
 
-from esercizio8_7 import make_album, make_album2
+from functions.esercizio8_7 import make_album, make_album2
 make_album(artist="Gemitaiz", title="Veleno 6")
 make_album(artist="Fedez",title="Bella storia")
 make_album(artist="IlTre", title="Cracovia")
@@ -123,7 +123,7 @@ sandwich(ingredients=['Mayonnaise', 'Bacon', 'Egg'])
 
 #import sandwich as mn
 #from sandwich import sandwich
-from sandwich import *
+from functions.sandwich import *
 sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
 """
 #esercizio 8-13
@@ -148,7 +148,7 @@ car(info={"Manufacturer: ":"Citroen", "\tModel: ":"C3", "\tColor: ":"Red","\tOpt
 """
 #esercizio 8-15
 """
-from printing_functions import printing_functions
+from functions.printing_functions import printing_functions
 info : dict = {}
 printing_functions(info={"Manufacturer: ":"Citroen", "\tModel: ":"C3", "\tColor: ":"Red","\tOptional: ":"Bose Sorround"})
 """
