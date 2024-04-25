@@ -48,35 +48,22 @@ describe_city(city = "Rome")
 describe_city(city = "Venice")
 describe_city(city = "Sofia", country="Bulgaria")
 """
-#esercizio 8-6
+#esercizio 8-6 e ESERCIZIO 8-17
 """
-def city_country(name : str, country: str) -> str : 
-    print(f"{name},{country}")
-    return f'{name},{country}'
-
+from esercizio8_6 import city_country
 city_country(name="Rome", country="Italy")
 city_country(name="Sofia", country="Bulgaria")
 city_country(name="Amsterdam", country="Netherlands") 
 """
 #esercizio 8-7
-"""
-def make_album(artist : str , title : str) -> str:
-    album : dict = {"Title:" : title, "Artist" : artist}
-    print(album)
-    return make_album
 
-def make_album2(artist : str , title : str, nsong : int = None) -> str:
-    album : dict = {"Title:" : title, "Artist" : artist, "Track number: " : nsong}
-    print(album)
-    return make_album2
-"""
-"""
+from esercizio8_7 import make_album, make_album2
 make_album(artist="Gemitaiz", title="Veleno 6")
 make_album(artist="Fedez",title="Bella storia")
 make_album(artist="IlTre", title="Cracovia")
 make_album2(artist="IlTre", title="Invisibili", nsong=8)
-make_album2(artist="Jovanotti", title="faffi", nsong=2)
-"""
+make_album2(artist="Jovanotti", title="Faffi", nsong=2)
+
 #esercizio 8-8
 """
 user : dict = {}
@@ -120,7 +107,7 @@ send_messages(message)
 copy = send_messages(message)
 print(copy, '\n', 'Copia: {}'.format(send_messages(message)))
 """
-#esercizio 8-12
+#esercizio 8-12 - vedere file sandwich.py - ESERCIZIO 8-15
 """
 ingredients : list = []
 def sandwich (ingredients ) :
@@ -133,6 +120,11 @@ def sandwich (ingredients ) :
 sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
 sandwich(ingredients=['Lattuce', 'Onion', 'Ketchup'])
 sandwich(ingredients=['Mayonnaise', 'Bacon', 'Egg'])
+
+#import sandwich as mn
+#from sandwich import sandwich
+from sandwich import *
+sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
 """
 #esercizio 8-13
 """
@@ -144,4 +136,29 @@ def build_profile(daniele : dict = {"Name" : "Daniele", "Surname" : "Fioravanti"
 build_profile()
 """
 #esercizio 8-14
+"""
+info : dict = {}
+def car(info) :
+    for x,y in info.items():
+        print(f'{x} : {y}', end = ' ')
+    print('\n')
+car(info={"Manufacturer: ":"Opel", "\tModel: ":"Corsa", "\tColor: ":"White","\tOptional: ":"Bluetooth"})
+car(info={"Manufacturer: ":"Mercedes-Benz", "\tModel: ":"Smart", "\tColor: ":"Black","\tOptional: ":"ABS"})
+car(info={"Manufacturer: ":"Citroen", "\tModel: ":"C3", "\tColor: ":"Red","\tOptional: ":"Bose Sorround"})
+"""
+#esercizio 8-15
+"""
+from printing_functions import printing_functions
+info : dict = {}
+printing_functions(info={"Manufacturer: ":"Citroen", "\tModel: ":"C3", "\tColor: ":"Red","\tOptional: ":"Bose Sorround"})
+"""
+#esercizio 8-16
+
+
+
+
+
+
+
+
 
