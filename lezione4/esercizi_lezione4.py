@@ -56,14 +56,14 @@ city_country(name="Sofia", country="Bulgaria")
 city_country(name="Amsterdam", country="Netherlands") 
 """
 #esercizio 8-7
-
+"""
 from functions.esercizio8_7 import make_album, make_album2
 make_album(artist="Gemitaiz", title="Veleno 6")
 make_album(artist="Fedez",title="Bella storia")
 make_album(artist="IlTre", title="Cracovia")
 make_album2(artist="IlTre", title="Invisibili", nsong=8)
 make_album2(artist="Jovanotti", title="Faffi", nsong=2)
-
+"""
 #esercizio 8-8
 """
 user : dict = {}
@@ -129,16 +129,18 @@ sandwich(ingredients=['Vegetables', 'Tomato', 'BBQ Sauce'])
 #esercizio 8-13
 """
 #daniele : dict = {"Name" : "Daniele", "Surname" : "Fioravanti", "Age" : 20, "City" : "Rome"} 
+
 def build_profile(daniele : dict = {"Name" : "Daniele", "Surname" : "Fioravanti", "Age" : 20, "City" : "Rome"}) :
     for x,y in daniele.items() :
         print(f"{x} : {y}, ", end = ' ')
     return daniele
 build_profile()
+
 """
 #esercizio 8-14
 """
 info : dict = {}
-def car(info) :
+def car(info) -> dict :
     for x,y in info.items():
         print(f'{x} : {y}', end = ' ')
     print('\n')
@@ -152,13 +154,31 @@ from functions.printing_functions import printing_functions
 info : dict = {}
 printing_functions(info={"Manufacturer: ":"Citroen", "\tModel: ":"C3", "\tColor: ":"Red","\tOptional: ":"Bose Sorround"})
 """
-#esercizio 8-16
+#esercizio 8-16 -> fatto, controllare esercizi con scritto "esercizio 8-16" 
 
+def construct_rectangle(area: float) -> list[float]:
+    combinazioni : list = []
+    x=0
+    y=0
+    for i in area_sito :
+        area_sito=x*y
+        if area == area_sito :
+            combinazioni.append(x)
+            combinazioni.append(y)
+        y+=1
+        x+=1
+    print(combinazioni)
 
-
-
-
-
-
-
+    def is_subsequence(s: str, t: str) -> bool:
+    if t == "":
+        result = False
+    if s == "":
+        result = True
+    for i in t:
+        for l in s:
+            if i == l:
+                result = True
+            if i != l:
+                result = False
+    return result
 
