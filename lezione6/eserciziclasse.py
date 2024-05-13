@@ -63,8 +63,6 @@ class Menu:
         minus = input("Which food do you want to remove?")
         if minus in menu:
             menu.remove(minus)
-
-            ff
         
 
 pasta : Food = Food(name="Arrabbiata", price=12, description="Very hot")
