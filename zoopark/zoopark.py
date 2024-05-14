@@ -10,8 +10,9 @@
     # describe_zoo (va messa nella classe zoo), devono tornare tutti i valori dei guardini e delle fence
 
 class Zoo :
-    fences : list = []
-    zoo_keepers : list = []
+    def __init__(self, fences:list, zoo_keepers:list) -> None:
+        self.fences = fences
+        self.zoo_keepers = zoo_keepers
 
 class Animal: 
         def __init__(self, name:str, species:str, age:int, height:int, width:int, preferred_habitat:str, health:float) -> None:
@@ -26,8 +27,8 @@ class Animal:
               self.health = round(100*(1/age), 3)
     
 class Fence:
-        def __init__(self, area, temperature, habitat) -> None:
-            self.area=area
+        def __init__(self, areafence, temperature, habitat) -> None:
+            self.areafence=areafence
             self.temperature=temperature
             self.habitat=habitat
             self.animal : list[Animal] = []
@@ -37,7 +38,16 @@ class Fence:
             for animal in self.animal:
                 animalarea+=animal.height*animal.width
             return animalarea
-                
+        
+        def add_animal(self, animal):
+            if self.areafence >= animal.height * animal.width:
+                self.animal.append(animal)
+                self.areafence -= animal.height * animal.width
+
+        def remove_animal(self, animal):
+            if animal in self.animal:
+                self.animal.remove(animal)
+                self.areafence += animal.height * animal.width
         
 class Zookeeper:
         def __init__(self, name, surname, id) -> None:
@@ -45,6 +55,10 @@ class Zookeeper:
               self.surname=surname
               self.id=id
         
-        def add_animal(animal:Animal, fence:Fence) -> str:
-              if fence.animal_area() < fence.area():
-                     
+        def feed(self, fence:Fence, animal:Animal):
+            if animal in Fence.animal:
+                if fence.areafence >= animal.height*animal.width:
+                    animal.health += 1
+                    animal.width *= 1.02
+                    animal.height *= 1.02
+        def cleam(self, )
