@@ -1,13 +1,5 @@
-# Fence avra self.area, self.temp, self.habitat E SELF.ANIMAL. Scrivere una funziona che calcola l'area occupata: prende lista animali, 
-#           la scorre e si salva tutte le area, restituendo il valore disponibile
-# Zookeeper avra self.name, self.surname, self.id. ATTENZIONE al fatto che possono pulire i recinti, nutrire animali e altri compiti
-# FUNZIONALITA:
-# Funzione: 
-    # add_animal (va messa nella classe zookeeper), verifica prima disponibilità e verifica se dimensione abbastanza grande per 
-    #       contenerlo verificare anche se l'habitat coincide con quello preferito e aggiornare l'area disponibile    
-    # feed (va messa nella classe zookeeper), attenzione alla crescita dell'area
-    # clean (va messa nella classe zookeeper)
-    # describe_zoo (va messa nella classe zoo), devono tornare tutti i valori dei guardini e delle fence
+#PROGETTO ZOOPARK DI DANIELE FIORAVANTI
+#CYBER SECURITY
 
 class Animal: 
         def __init__(self, name:str, species:str, age:int, height:int, width:int, preferred_habitat:str, health:float) -> None:
@@ -28,7 +20,7 @@ class Fence:
             self.habitat=habitat
             self.animal : list[Animal] = []
         
-        def animal_area(self)->float:
+        def animal_area(self) -> float:
             '''
                 This function calcolate the area of animals.
                 input: animal height and width
@@ -39,7 +31,7 @@ class Fence:
                 animalarea+=animal.height*animal.width
             return animalarea
         
-        def add_animal(self, animal):
+        def add_animal(self, animal) -> float:
             '''
                 This function add animal to fence. 
                 First of all calcolate if the fence has enough area for the animal.
@@ -51,7 +43,7 @@ class Fence:
                 self.animal.append(animal)
                 self.areafence -= animal.height * animal.width
 
-        def remove_animal(self, animal):
+        def remove_animal(self, animal) -> float:
             '''
                 This function remove animal to fence. 
                 It add the area that was occupated by the animal that now is free.
@@ -68,7 +60,7 @@ class Zookeeper:
               self.surname=surname
               self.id=id
         
-        def feed(self, fence:Fence, animal:Animal):
+        def feed(self, fence:Fence, animal:Animal) -> float: 
             '''
                 This function feed the animal.
                 It calculate if there is enough area for feed the animal,
@@ -81,11 +73,11 @@ class Zookeeper:
                     animal.height *= 1.02
             
 class Zoo:
-    def __init__(self):
+    def __init__(self) -> None:
         self.fences = []
         self.zookeepers = []
 
-    def add_fence(self, fence):
+    def add_fence(self, fence) -> None:
         '''
             This function add the fence to the fence list.
             input: fence
@@ -93,7 +85,7 @@ class Zoo:
         '''
         self.fences.append(fence)
 
-    def add_zoo_keeper(self, zookeeper):
+    def add_zookeeper(self, zookeeper) -> None:
         '''
             This function add the zookeeper to the zookeeper list.
             input: zookeeper
@@ -101,7 +93,7 @@ class Zoo:
         '''
         self.zookeepers.append(zookeeper)
 
-    def clean(self):
+    def clean(self) -> float:
         '''
             This function clean the fence.
             It calculate the time that the zookeeper need to clean the fence with a math formule written in the exercise.
@@ -111,7 +103,7 @@ class Zoo:
         for fence in self.fences:
             
             if fence.animal:
-                cleaning_time = fence.areafence / (Fence.areafence - (Fence.areafence - sum(Animal.height * Animal.width for animal in Fence.animal)))
+                cleaning_time = fence.areafence / (fence.areafence - (fence.areafence - sum(animal.height * animal.width for animal in fence.animal)))
                 total_cleaning_time += cleaning_time
             
             else:
@@ -120,7 +112,7 @@ class Zoo:
         
         return total_cleaning_time
 
-    def describe_zoo(self):
+    def describe_zoo(self) -> str:
         '''
             This function print every information about the zoo.
             Firstly it prints the zookeeper, then the fence and each animal inside this specific fence.
@@ -143,43 +135,3 @@ class Zoo:
         
         
         print("#" * 30)
-
-
-#Istanze create con chatgpt 
-
-# Creazione degli animali
-lion = Animal("Simba", "Lion", 5, 3, 4, "Savannah", 100)
-tiger = Animal("Shere Khan", "Tiger", 6, 3, 3, "Jungle", 100)
-elephant = Animal("Dumbo", "Elephant", 8, 6, 7, "Savannah", 100)
-
-# Creazione delle recinzioni
-savannah_fence = Fence(100, "Warm", "Savannah")
-jungle_fence = Fence(120, "Tropical", "Jungle")
-
-# Creazione degli zookeeper
-zookeeper1 = Zookeeper("John", "Doe", 12345)
-zookeeper2 = Zookeeper("Daniele", "Daww", 54321)
-
-# Creazione dello zoo
-zoo = Zoo()
-
-# Aggiunta delle recinzioni allo zoo
-zoo.add_fence(savannah_fence)
-zoo.add_fence(jungle_fence)
-
-# Aggiunta degli zookeeper allo zoo
-zoo.add_zoo_keeper(zookeeper1)
-zoo.add_zoo_keeper(zookeeper2)
-
-# Alimentazione degli animali
-zookeeper1.feed(savannah_fence, lion)
-zookeeper1.feed(jungle_fence, tiger)
-zookeeper2.feed(savannah_fence, elephant)
-
-# Aggiunta degli animali alle recinzioni
-savannah_fence.add_animal(lion)
-jungle_fence.add_animal(tiger)
-savannah_fence.add_animal(elephant)
-
-# Descrizione dello zoo
-zoo.describe_zoo()
