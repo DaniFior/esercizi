@@ -15,6 +15,11 @@ ostacoli = {15: -3, 30: -5, 45: -7}
 bonus = {10: 5, 25: 3, 50: 10}
 
 def posizione(posizionelepre, posizionetarta, percorso):
+    '''
+        This function print the position of the tartoise and hare each tick.
+        input: posizionelepre, posizionetarta, percorso
+        return: percorso 
+    '''
     percorso = ['-'] * lunghezza_lista
     if posizionelepre == posizionetarta:
         percorso[posizionetarta - 1] = 'OUCH!'
@@ -26,6 +31,11 @@ def posizione(posizionelepre, posizionetarta, percorso):
     print(''.join(percorso))
 
 def applica_ostacoli_bonus(posizione, tipo):
+    '''
+        This function apply bonus or malus if they are needed.
+        input: posizione
+        return: posizione
+    '''
     if tipo == 'ostacoli' and posizione in ostacoli:
         posizione += ostacoli[posizione]
         posizione = max(1, posizione)
@@ -35,6 +45,12 @@ def applica_ostacoli_bonus(posizione, tipo):
     return posizione
 
 def mossatarta(posizionetarta, energiatarta, meteo_corrente):
+    '''
+        This function create a random number, verify the weather, the energy and eventually bonus or malus.
+        Every tick, this number change and the position of tartoise is different.
+        input: posizionetarta, energiatarta, meteo_corrente
+        return: posizionetarta, energiatarta
+    '''
     mossa = random.randint(1, 10)
     if mossa <= 5:
         progresso_mossa = 3
@@ -61,7 +77,13 @@ def mossatarta(posizionetarta, energiatarta, meteo_corrente):
 
     return posizionetarta, energiatarta
 
-def mossalepre(posizionelepre, energialepre, meteo):
+def mossalepre(posizionelepre, energialepre, meteo_corrente):
+    '''
+        This function create a random number, verify the weather, the energy and eventually bonus or malus.
+        Every tick, this number change and the position of hure is different.
+        input: posizionelepre, energialepre, meteo_corrente
+        return: posizionelepre, energialepre
+    '''
     numero = random.randint(1, 10)
     if numero <= 2:
         progresso_mossa = 0
@@ -79,7 +101,7 @@ def mossalepre(posizionelepre, energialepre, meteo):
         progresso_mossa = -2
         costo_mossa = 8
 
-    if meteo == 'pioggia' and progresso_mossa > 0:
+    if meteo_corrente == 'pioggia' and progresso_mossa > 0:
         progresso_mossa -= 1
 
     if energialepre >= abs(costo_mossa):
@@ -93,6 +115,14 @@ def mossalepre(posizionelepre, energialepre, meteo):
     posizionelepre = applica_ostacoli_bonus(posizionelepre, 'bonus')
 
     return posizionelepre, energialepre
+
+
+'''
+    This is the main, it call every function and create the tick of the clock. Every ten click, the 
+    weather change. 
+    There is a print that create every tick the position of each animal, the number of the tick, the energy
+    for each animal and the winner. 
+'''
 
 print("BANG !!!!! AND THEY'RE OFF !!!!!")
 while posizionetarta < 70 and posizionelepre < 70:
