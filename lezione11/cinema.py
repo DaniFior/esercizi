@@ -4,52 +4,43 @@ class Film:
         self.durata = durata
 
 class Sala:
-    def __init__(self, id:int, num_posti:int, posti_occ:int,  film : Film = Film()) -> None:
-        self.id = id
+    def __init__(self, numero_sala:int, film:Film, posti_totali : int) -> None:
+        self.numero_sala = numero_sala
         self.film = film
-        self.num_posti = num_posti
-        self.posti_occ = posti_occ
+        self.posti_totali = posti_totali
+        self.posti_prenotati = 0
 
-    def prenota_posti(self) -> str:
-        richiesta = 0
-        if richiesta < self.num_posti and richiesta < self.posti_occ:
-            self.posti_occ =- richiesta
-            print("Prenotazione effettuata")
+    def prenota_posti(self, num_posti : int) -> str:
+        posti_liberi = self.posti_totali - self.posti_prenotati
+        if num_posti <= posti_liberi:
+            self.posti_prenotati += num_posti
+            return f"Posti prenotati {num_posti}"
         else:
-            print("ERROR! Prova ad inserire meno posti, la sala è piena!")
-        return self.posti_occ
+            return "Inserisci meno posti, sala piena"
 
     def posti_disponibili(self) -> str:
-        liberi = self.num_posti - self.posti_occ
+        liberi = self.posti_totali - self.posti_prenotati
         print(f"Posti disponibili: {liberi}")
 
 class Cinema:   #gestisce operazioni della sala
-    def __init__(self, sala : list[Sala], elenco_sale : list = [], elenco_film : list = []) -> None:
-        self.sala = sala   
-        self.elenco_sale = elenco_sale
-        self.elenco_film = elenco_film
+    def __init__(self) -> None:
+        self.sale = []
     
-    def aggiungi_sala(self):
-        self.elenco_sale.append(self.sala)
+    def aggiungi_sala(self, sala:Sala):
+        self.sale.append(sala)
         print("Sala aggiunta")
     
-    def prenota_film(self, titolo, num_posti, elenco_film) -> str:
-        if self.film in elenco_film:
-            self.sala.prenota_posti()
+    def prenota_film(self, titolo_film:str, num_posti:int):
+        for sala in self.sale:
+            if sala.film.titolo == titolo_film:
+                return sala.prenota_posti(num_posti)
+        return "Film not found"
 
 
-film1 : Film = Film("Back to the future", 130)
-film2 : Film = Film("Avengers", 340)
-film3 : Film = Film("Aldo, Giovanni e Giacomo", 95)
-
-sala1 : Sala = Sala(1, 110, 43, film1)
-sala2 : Sala = Sala(2, 90, 13, film3)
-sala3 : Sala = Sala(3, 250, 120, film2)
-        
-cinema1: Cinema = Cinema(sala1, film1 )
-
-
-
-
-
-
+cinema = Cinema()
+film1 = Film("Interstellar", 120)
+sala1  =Sala(1, film1, 100)
+cinema.aggiungi_sala(sala1)
+print(cinema.prenota_film("Interstellar", 5))
+print(cinema.prenota_film("Interstellar", 95))
+print(cinema.prenota_film("Interstellar", 1))
