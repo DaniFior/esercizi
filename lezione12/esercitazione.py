@@ -1,4 +1,5 @@
-contatore:
+#ESERCIZIO CONTATORE
+'''
 class Contatore:
     def __init__(self):
         self.conteggio = 0
@@ -20,9 +21,9 @@ class Contatore:
         
     def mostra(self):
         print(f"Conteggio attuale: {self.conteggio}")
-
-ricette:
-
+'''
+#ESERCIZIO RICETTA
+'''
 class RecipeManager:
     def __init__(self):
         self.recipe : dict = {}
@@ -76,9 +77,9 @@ class RecipeManager:
             return dizionario_mom
         else:
             return "l'ingrediente non si trova in nessuna ricetta"
-            
-veicolo:
-
+'''
+#ESERCIZIO VEICOLO
+'''
 class Veicolo:
     def __init__(self, marca, modello, anno):
         self.marca = marca
@@ -103,5 +104,49 @@ class Moto(Veicolo):
         
     def descrivi_veicolo(self):
         print(f'Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Tipo: {self.tipo}')
+'''
+#ESERCIZIO ELENTI E BUFFALO -> NON ESCE IL RISULTATO DELLA DENSITA
+class Specie:
+    def __init__(self, nome: str, popolazione_iniziale: int, tasso_crescita: float):
+        self.nome = nome
+        self.popolazione = popolazione_iniziale
+        self.tasso_crescita = tasso_crescita
+
+
+    def cresci(self):
+        self.popolazione *= (1 + self.tasso_crescita / 100)
+
+
+    def anni_per_superare(self, altra_specie: 'Specie') -> int:
+        anni = 1
+        popolazione_questa_specie = self.popolazione
+        popolazione_altra_specie = altra_specie.popolazione
         
+        while popolazione_questa_specie <= popolazione_altra_specie:
+            popolazione_questa_specie *= (1 + self.tasso_crescita / 100)
+            popolazione_altra_specie *= (1 + altra_specie.tasso_crescita / 100)
+            anni += 1
+        return anni
+
+
+    def getDensita(self, area_kmq: float) -> int:
+        anni = 1
+        popolazione_questa_specie = self.popolazione
         
+        while popolazione_questa_specie / area_kmq < 1:
+            print(f"Anno {anni}: Popolazione = {popolazione_questa_specie}, Densità = {popolazione_questa_specie / area_kmq}")
+            popolazione_questa_specie *= (1 + self.tasso_crescita / 100)
+            anni += 1
+        
+        print(f"Anno {anni}: Popolazione = {popolazione_questa_specie}, Densità = {popolazione_questa_specie / area_kmq}")
+        return anni
+
+
+class BufaloKlingon(Specie):
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__("Bufalo Klingon", popolazione_iniziale, tasso_crescita)
+
+
+class Elefante(Specie):
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__("Elefante", popolazione_iniziale, tasso_crescita)
