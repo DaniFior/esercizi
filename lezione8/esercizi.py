@@ -82,62 +82,74 @@ class Member:
     def borrow_book(self, book:Book):
         if book.title not in self.borrowed_books:
             self.borrowed_books.append(book)
-            print("Libro aggiunto")
+            #print("Libro aggiunto")
         elif book.title in self.borrowed_books:
             print("Libro già presente")
 
     def return_book(self, book:Book):
         if book.title in self.borrowed_books:
             self.borrowed_books.remove(book)
-            print("Libro rimosso")
+            #print("Libro rimosso")
         elif book.title not in self.borrowed_books:
             print("Libro non presente")
-        
-    def salvatitoli(self, book:Book, borrowed_books, titoli):
-        for i in borrowed_books:
-            titoli.append(book.title)
-
+    
     def __str__(self) -> str:
-        return f'Member {self.name} has code {self.member_id} and this are the borrowed book {self.titoli}'
-
-    @classmethod
-    def from_string(cls, string):
-        return cls(string=string)
+        borrowed_titles = [book.title for book in self.borrowed_books]
+        return f"Member: {self.name}, ID: {self.member_id}, Borrowed Books: {borrowed_titles})"
     
 class Library:
-    def __init__(self, books, members, total_books) -> None:
-        self.books = books
-        members = []
-        self.members = members
-        self.total_books = total_books
-        library = []
-        self.library = library 
-    
-    def add_book(self, book:Book, library, total_books):
-        if book.title not in library: 
-            library.append(book.title)
-            total_books+=1
-        elif book.title in library: 
-            print("Libro già presente")
-    
-    def remove_book(self, book:Book, library, total_books):
-        if book.title in library:
-            library.remove(book.title)
-            total_books-=1
-            print("Libro rimosso")
-        elif book.title not in library:
-            print("Libro non presente in libreria")
+    total_books = 0
+    def __init__(self) -> None:
+        self.books = []
+        self.members = []
 
-    def register_member(self, member:Member, members):
-        if member.name not in members:
-            members.append(member.name)
-            print("Membro aggiunto")
-        elif member.name in members:
-            print("Membro già nell'elenco")
+    def add_book(self, book:Book):
+        self.books.append(book)
+        Library.total_books+=1
+        #print("Libro aggiunto")
+    
+    def remove_book(self, book:Book):
+        self.books.remove(book)
+        Library.total_books-=1
+        #print("Libro rimosso")
+
+    def register_member(self, member:Member):
+        self.members.append(member)
+        #print("Membro aggiunto")
+
+    def lend_book(self, book, member):
+        if book in self.books and member in self.members:
+            self.books.remove(book)
+            member.borrow_book(book)
+        else:
+            print("Il libro potrebbe non essere disponibile o il membro non è registrato")
+
+    def __str__(self):
+        books_str = ([str(book) for book in self.books])
+        members_str = ([str(member) for member in self.members])
+        return f"Library:\nBooks: {books_str}\nMembers: {members_str}"
 
 
 book1 = Book("La divina commedia", "Dante", 5487)
+book2 = Book("Signore degli anelli", "Totti", 8745)
+book3 = Book("Se questo è un uomo", "Primo Levi", 2145)
 member1 = Member(101, "Mario")
+member2 = Member(666, "Giuseppe")
+member3 = Member(874, "Mirko")
 member1.borrow_book(book1)
 print(str(member1))
 print(str(book1))
+libreria = Library()
+libreria.add_book(book1)
+libreria.add_book(book2)
+libreria.add_book(book3)
+libreria.remove_book(book1)
+libreria.register_member(member1)
+libreria.register_member(member2)
+libreria.register_member(member3)
+libreria.lend_book(book2,member2)
+libreria.lend_book(book3,member3)
+libreria.lend_book(book2, member1)
+print(str(libreria))
+
+
