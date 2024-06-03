@@ -114,31 +114,26 @@ class Specie:
 
 
     def cresci(self):
-        self.popolazione *= (1 + self.tasso_crescita / 100)
+        self.popolazione = int(self.popolazione * (1 + self.tasso_crescita / 100))
 
 
     def anni_per_superare(self, altra_specie: 'Specie') -> int:
-        anni = 1
-        popolazione_questa_specie = self.popolazione
-        popolazione_altra_specie = altra_specie.popolazione
+        anni = 0
         
-        while popolazione_questa_specie <= popolazione_altra_specie:
-            popolazione_questa_specie *= (1 + self.tasso_crescita / 100)
-            popolazione_altra_specie *= (1 + altra_specie.tasso_crescita / 100)
+        while self.popolazione <= altra_specie.popolazione:
+            self.cresci()
+            altra_specie.cresci()
             anni += 1
         return anni
 
 
     def getDensita(self, area_kmq: float) -> int:
-        anni = 1
-        popolazione_questa_specie = self.popolazione
+        anni = 0
         
-        while popolazione_questa_specie / area_kmq < 1:
-            print(f"Anno {anni}: Popolazione = {popolazione_questa_specie}, Densità = {popolazione_questa_specie / area_kmq}")
-            popolazione_questa_specie *= (1 + self.tasso_crescita / 100)
+        while self.popolazione / area_kmq < 1:
+            self.cresci()
             anni += 1
         
-        print(f"Anno {anni}: Popolazione = {popolazione_questa_specie}, Densità = {popolazione_questa_specie / area_kmq}")
         return anni
 
 
