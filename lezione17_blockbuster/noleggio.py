@@ -6,12 +6,12 @@ class Noleggio:
         self.film_list:list = film_list
         self.rented_film:dict = {}
     
-    def isAvaiable(self, film):
+    def isAvaiable(self, film:Film):
         if film in self.film_list:
-            print(f"Il film scelto è disponibile: {film}")
+            print(f"Il film scelto è disponibile: {film.title}")
             return True
         else:
-            print(f"Il film scelto non è disponibile: {film}")
+            print(f"Il film scelto non è disponibile: {film.title}")
             return False
     
     def rentAMovie(self, film, clientID):

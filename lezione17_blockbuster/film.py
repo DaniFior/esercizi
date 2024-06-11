@@ -4,12 +4,10 @@ class Film:
         self.__title = title
     
     def setID(self, id):
-        if isinstance(id, int):
-            self.__id = id
+        self.__id = id
     
     def setTitle(self, title):
-        if isinstance(title, str):
-            self.__title = title
+        self.__title = title
         
     def getID(self):
         return self.__id
@@ -18,7 +16,8 @@ class Film:
         return self.__title
     
     def isEqual(self, otherFilm:int):
-        if otherFilm == self.__id:
-            return True
-        else:
-            return False
+        #if otherFilm == self.__id:
+        #    return True
+        #else:
+        #    return False
+        return self.__id == otherFilm.getID()

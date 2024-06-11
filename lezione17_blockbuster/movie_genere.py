@@ -1,8 +1,8 @@
 from film import Film
 
 class Azione(Film):
-    def __init__(self, id: int, titolo: str) -> None:
-        super().__init__(id, titolo)
+    def __init__(self, id: int, title: str) -> None:
+        super().__init__(id, title)
         self.__penale = 3.0
         self.__genere = "Azione"
 
@@ -13,13 +13,12 @@ class Azione(Film):
         return self.__penale
     
     def calcolaPenaleRitardo(self, giorniritardo:int):
-        penale = giorniritardo * self.__penale
-        return penale
+        return giorniritardo * self.__penale
 
 
 class Commedia(Film):
-    def __init__(self, id: int, titolo: str) -> None:
-        super().__init__(id, titolo)
+    def __init__(self, id: int, title: str) -> None:
+        super().__init__(id, title)
         self.__penale = 2.5
         self.__genere = "Commedia"
 
@@ -30,12 +29,11 @@ class Commedia(Film):
         return self.__penale
     
     def calcolaPenaleRitardo(self, giorniritardo:int):
-        penale = giorniritardo * self.__penale
-        return penale
+        return giorniritardo * self.__penale
 
 class Drama(Film):
-    def __init__(self, id: int, titolo: str, genere: str) -> None:
-        super().__init__(id, titolo)
+    def __init__(self, id: int, title: str) -> None:
+        super().__init__(id, title)
         self.__penale = 2
         self.__genere = "Drama"
 
@@ -46,5 +44,4 @@ class Drama(Film):
         return self.__penale
     
     def calcolaPenaleRitardo(self, giorniritardo:int):
-        penale = giorniritardo * self.__penale
-        return penale
+        return giorniritardo * self.__penale
