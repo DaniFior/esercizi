@@ -1,0 +1,4 @@
+Prodotto; Importo unitario; Quantita'
+Volo aereo;320;4
+Hotel; 100;2
+Auto a noleggio;250;1
