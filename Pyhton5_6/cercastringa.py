@@ -25,4 +25,6 @@ for root, dirs, files in os.walk(root):
         if(ret == True):
             print(f"Trovato file: {filename}")
             numfiletrovati = numfiletrovati + 1
+
+            
         
