@@ -75,4 +75,4 @@ CREATE TABLE Assenza(
     PRIMARY KEY(id),
     unique(persona, giorno),
     FOREIGN KEY (persona) REFERENCES Persona(id)
-);
+);  
