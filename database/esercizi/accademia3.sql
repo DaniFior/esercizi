@@ -1,6 +1,6 @@
 CREATE DATABASE Accademia;
 
-CREATE TYPE Strutturato AS ENUM ('ricercatore', 'professore_associato', 'professore_ordinario');
+CREATE TYPE Strutturato AS ENUM ('Ricercatore', 'Professore Associato', 'professore_ordinario');
 CREATE TYPE LavoroProgetto AS ENUM ('ricerca_sviluppo', 'dimostrazione', 'management', 'altro');
 CREATE TYPE LavoroNonProgettuale AS ENUM ('didattica', 'ricerca', 'missione', 'incontro_dipartimentale', 'incontro_accademico', 'altro');
 CREATE TYPE CausaAssenza AS ENUM ('chiusura_universitaria', 'maternita', 'malattia');

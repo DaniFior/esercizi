@@ -1,40 +1,37 @@
 SELECT Persona.cognome
-FROM Persona
-WHERE posizione = Strutturato 
+FROM Persona;
 
-SELECT Persona.nome, Persona.cognome
+SELECT Persona.*
 FROM Persona
-WHERE posizione = ricercatore
+WHERE Persona.posizione = 'Ricercatore';
 
-SELECT Persona.cognome
+SELECT Persona.*
 FROM Persona
-WHERE posizione = professore_associato 
-AND cognome like 'V%'
+WHERE Persona.posizione = 'Professore Associato' AND Persona.cognome like 'V%';
 
 SELECT cognome
 FROM Persona
-WHERE posizione = professore_associato
-AND posizione = professore_ordinario
-AND cognome like 'V%'
+WHERE (Persona.posizione = 'Professore Associato' OR posizione = 'Professore Ordinario')
+AND cognome like 'V%';
 
-SELECT Progetto.id
+SELECT Progetto.*
 FROM Progetto
-WHERE fine < date
+WHERE Progetto.fine < current_date;
 
-SELECT Progetto.nome
+SELECT Progetto.*
 FROM Progetto
-ORDER BY date
+ORDER BY Progetto.inizio;
 
-SELECT WP.nome
+SELECT WP.*
 FROM WP
-ORDER BY nome
+ORDER BY WP.nome;
 
 SELECT DISTINCT Assenza.tipo
-FROM Assenza
+FROM Assenza;
 
-SELECT DISTINCT AttivitaProgetto.tipologia
-FROM AttivitaProgetto
+SELECT DISTINCT AttivitaProgetto.tipo
+FROM AttivitaProgetto;
 
 SELECT DISTINCT AttivitaNonProgettuale.giorno
 FROM AttivitaNonProgettuale
-WHERE tipo = 'didattica'
+WHERE AttivitaNonProgettuale.tipo = 'Didattica';
