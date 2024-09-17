@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 api = Flask("__name__")
 
-utenti=[["mariorossi@gmail.com", "MRORSI02M05H501Y", "pippo"], ["giuliogallo@gmail.com", "GLOGLL02G09H501T", "topolino"], ["marcodibello@gmail.com","MRCDBL02G09H501T", "minnie"]]
+utenti=[["mariorossi@gmail.com", "MRORSI02M05H501Y", "pippo"], ["giuliogallo@gmail.com", "GLIGLL02G09H501T", "topolino"], ["marcodibello@gmail.com","MRCDBL02G09H501T", "minnie"]]
 utente = []
 
     
