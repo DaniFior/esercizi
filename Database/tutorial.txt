@@ -1,0 +1,24 @@
+PER FARE DATABASE:
+
+entra su root
+entra su data, crea cartella e entra
+apri terminal normale e sposta i file del DB nella cartella creata 
+    con 'docker cp domains-tables.sql postgres_container:/data/'nome cartella'
+scrivi: 'psql -U postgres' per entrare nel postgres
+crea il database, entraci con \c 'nome db' e carica i file con il codice: \i domains.tables.sql, constraints e data
+ora è possibile usare il db
+
+
+CREARE DUMP:
+
+SUL TERMINALE DEL DATABASE:
+    uscire dal database con \q
+
+    pg_dump -U postgres accademia > accademia.sql
+
+
+SU UN TERMINALE NUOVO:
+    aprire la cartella dove vuoi che venga salvato
+    
+    docker cp postgres_container:/accademia.sql .
+    docker cp ./accademia.sql postgres_container:/data/
