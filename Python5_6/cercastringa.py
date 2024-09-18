@@ -24,4 +24,17 @@ for root, dirs, files in os.walk(root):
             ret = cercastringainfilecontent(filepathcompleto, stringadacercare)
         if(ret == True):
             print(f"Trovato file: {filename}")
+<<<<<<< HEAD:Pyhton5_6/cercastringa.py
             numfiletrovati = numfiletrovati + 1
+=======
+            numfiletrovati = numfiletrovati + 1
+
+
+
+
+
+            
+        
+
+        
+>>>>>>> 02a6f688541c8170d791552a77e7144f484ca0b8:Python5_6/cercastringa.py
