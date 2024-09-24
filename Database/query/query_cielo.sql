@@ -57,4 +57,30 @@ FROM Aeroporto, ArrPart, LuogoAeroporto
 WHERE LuogoAeroporto.aeroporto = ArrPart.partenza AND Aeroporto.codice = ArrPart.partenza 
 AND ArrPart.comp = 'MagicFly';
 
-SELECT Volo.codice, Volo.comp, ArrPart.arrivo, ArrPart.partenza<\ 
+SELECT V.codice, V.comp, AP.partenza, AP.arrivo
+FROM Volo V
+JOIN ArrPart AP ON V.codice = AP.codice AND V.comp = AP.comp
+JOIN LuogoAeroporto LA1 ON AP.partenza = LA1.aeroporto
+JOIN LuogoAeroporto LA2 ON AP.arrivo = LA2.aeroporto
+WHERE LA1.citta = 'Roma'
+AND LA2.citta = 'New York';
+
+SELECT V1.comp, V1.codice AS volo_1, V2.codice AS volo_2, AP1.partenza AS aeroporto_partenza, AP1.arrivo AS aeroporto_scalo, AP2.arrivo AS aeroporto_arrivo
+FROM Volo V1
+JOIN ArrPart AP1 ON V1.codice = AP1.codice AND V1.comp = AP1.comp
+JOIN Volo V2 ON V1.comp = V2.comp
+JOIN ArrPart AP2 ON V2.codice = AP2.codice AND V2.comp = AP2.comp
+JOIN LuogoAeroporto LA1 ON AP1.partenza = LA1.aeroporto
+JOIN LuogoAeroporto LA2 ON AP2.arrivo = LA2.aeroporto
+JOIN LuogoAeroporto LAS ON AP1.arrivo = LAS.aeroporto AND AP2.partenza = LAS.aeroporto
+WHERE LA1.citta = 'Roma'
+AND LA2.citta = 'New York'
+AND AP1.arrivo = AP2.partenza;
+
+SELECT C.nome
+FROM Compagnia C
+JOIN Volo V ON C.nome = V.comp
+JOIN ArrPart AP ON V.codice = AP.codice AND V.comp = AP.comp
+WHERE AP.partenza = 'FCO'
+AND AP.arrivo = 'JFK'
+AND C.annoFondaz IS NOT NULL;
