@@ -1,6 +1,6 @@
 PER FARE DATABASE:
 
-entra su root
+entra su root con il codice: 'docker exec -it postgres_container bash'
 entra su data, crea cartella e entra
 apri terminal normale e sposta i file del DB nella cartella creata 
     con 'docker cp domains-tables.sql postgres_container:/data/'nome cartella'
