@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <h1>Form per Feedback</h1>
+    <title>Form Feedback</title>
+
+</head>
+<body>
+    <form>
+        <label for = "nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for = "cognome">Cognome:</label><br>
+        <input type="text" id="cognome" name="cognome"><br>
+
+        <label for = "email">Indirizzo Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+
+        <label for = "subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject"><br>
+    <br>
+        <p>Seleziona il tuo linguaggio di programmazione preferito:</p>
+            <input type="radio" id="java" name="fav_language" value="java">
+            <label for="java">Java</label><br>
+
+            <input type="radio" id="javascript" name="fav_language" value="javascript">
+            <label for="javascript">JavaScript</label><br>
+
+            <input type="radio" id="c" name="fav_language" value="c">
+            <label for="c">C#</label><br>
+
+            <input type="radio" id="python" name="fav_language" value="python">
+            <label for="python">Python</label><br>
+
+            <input type="radio" id="go" name="fav_language" value="go">
+            <label for="go">GO</label><br>
+    <br>
+        <p>Seleziona il tuo sesso:</p>
+        <input type="radio" id="uomo" name="sesso" value="uomo">
+        <label for="uomo">Uomo</label><br>
+
+        <input type="radio" id="donna" name="sesso" value="donna">
+        <label for="donna">Donna</label><br>
+    <br>
+        <label for="birthday">Data di nascita:</label>
+        <input type="date" id="birthday" name="birthday">
+
+        <p>Inserisca qui un eventuale commento:</p>
+        <textarea name="Text1" cols="40" rows="5"></textarea>
+    <br>
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy">Accetto la <a href="privacy.html" target="_blank">Privacy Policy</a></label><br><br>
+
+        <button type="submit">Invia</button>
+        <button type="reset">Reset</button>
+    </form>
+
+</body>
