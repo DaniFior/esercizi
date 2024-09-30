@@ -34,5 +34,7 @@ while (sOper != "5"):
             print(data1)
         except:
             print("Problemi di comunicazione con il server, riprova più tardi")
+
+
     CreaInterfaccia()
     sOper = input("Seleziona operazione")

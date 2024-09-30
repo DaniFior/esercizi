@@ -2,22 +2,23 @@ from flask import Flask, json, request
 from myjson import JsonSerialize,JsonDeserialize
 import sys
 
-sFile = "./prova.json"
-myDict = {"nome":"Mario", "cognome":"Rossi"}
-iRet = JsonSerialize(myDict, sFile)
-if iRet == 0:
-    print("Operazione terminata correttamente")
-elif iRet == 1:
-    print("Operazione terminata correttamente")
-elif iRet == 2:
-    print("Errore salvataggio su file")
-sys.exit() 
+#sFile = "./prova.json"
+#myDict = {"nome":"Mario", "cognome":"Rossi"}
+#iRet = JsonSerialize(myDict, sFile)
+#if iRet == 0:
+#    print("Operazione terminata correttamente")
+#elif iRet == 1:
+#    print("Operazione terminata correttamente")
+#elif iRet == 2:
+#    print("Errore salvataggio su file")
+#sys.exit() 
 
 
 sFileAnagrafe = "./anagrafe.json"
 api = Flask(__name__)
 
 @api.route('/add_cittadino', methods=['POST'])
+
 def GestisciAddCittadino():
     #prendi i dati della richiesta
     content_type = request.headers.get('Content-Type')
