@@ -1,10 +1,10 @@
 '1. Quante sono le compagnie che operano (sia in arrivo che in partenza) nei diversi
 aeroporti?'
-SELECT  ArrPart.codice, ArrPart.nome, COUNT(DISTINCT ArrPart.comp) AS num_compagnie
+SELECT Aeroporto.codice, Aeroporto.nome, COUNT(DISTINCT comp) 
 FROM Aeroporto, ArrPart
-WHERE ArrPart.codice = ArrPart.arrivo
-OR ArrPart.codice = ArrPart.partenza
-GROUP BY ArrPart.codice, ArrPart.nome;
+WHERE ArrPart.partenza = Aeroporto.codice
+OR ArrPart.arrivo = Aeroporto.codice
+GROUP BY Aeroporto.codice, Aeroporto.nome;
 
 '2. Quanti sono i voli che partono dall’aeroporto ‘HTR’ e hanno una durata di almeno
 100 minuti?'
@@ -12,16 +12,15 @@ SELECT COUNT(*) AS num_voli
 FROM ArrPart, Volo
 WHERE ArrPart.partenza = 'HTR'
 AND Volo.codice = ArrPart.codice
-AND Volo.comp = ArrPart.comp
 AND Volo.durataminuti >= 100;
 
 '3. Quanti sono gli aeroporti sui quali opera la compagnia ‘Apitalia’, per ogni nazione
 nella quale opera?'
-SELECT LuogoAeroporto.nazione, COUNT(DISTINCT Aeroporto.codice) AS num_aeroporti
+SELECT LuogoAeroporto.nazione, COUNT(DISTINCT aeroporto) AS num_aeroporti
 FROM ArrPart, Aeroporto, LuogoAeroporto
-WHERE (Aeroporto.codice = ArrPart.arrivo OR Aeroporto.codice = ArrPart.partenza)
-AND Aeroporto.codice = LuogoAeroporto.Aeroporto
-AND ArrPart.comp = 'Apitalia'
+WHERE 
+    (ArrPart.partenza = LuogoAeroporto.aeroporto OR ArrPart.arrivo = LuogoAeroporto.aeroporto)
+    AND ArrPart.comp = 'Apitalia'
 GROUP BY LuogoAeroporto.nazione;
 
 '4. Qual è la media, il massimo e il minimo della durata dei voli effettuati dalla
