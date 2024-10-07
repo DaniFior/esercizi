@@ -1,0 +1,4 @@
+COME CREARE UN FILE JavaScript AVENDO IL FILE TypeScript
+
+Andare su terminale in basso, entrare nella cartella dove ci sta il file TS  e scrivere: TSC *nome file*
+
