@@ -1,0 +1,20 @@
+Il client parte, fa il login e solo se il login va bene gli 
+compare la lista dei servizi che può fare in base ai suoi permessi.
+
+Quando il client invoca un servizio MANDA OGNI VOLTA Username e Password
+perchè non c'è una sessione.
+
+esempio:
+
+ADD CITTADINO 
+{"NOME":"Mario",
+"COGNOME":"Rossi",
+"DATA_NASCITA":"23/07/1950",
+"CODICE_FISCALE":"MRORSS23M07H501U"}
+
+{"USERNAME":"mariorossi@gmail.com",
+"PASSWORD":"paperino3",
+"datiCittadino":{"NOME":"Mario",
+"COGNOME":"Rossi",
+"DATA_NASCITA":"23/07/1950",
+"CODICE_FISCALE":"MRORSS23M07H501U"}}

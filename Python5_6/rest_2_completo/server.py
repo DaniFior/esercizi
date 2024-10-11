@@ -13,10 +13,12 @@ def GestisciAddCittadino():
     content_type = request.headers.get('Content-Type')
     if content_type == 'application/json':
         jsonReq = request.json
+
         
         #prima di tutto verifico utente, password e privilegio 
         #dove utente e password me l'ha inviato il client
         #mentre il privilegio lo vado a leggere nel mio file  (utenti.json)
+        
 
         codice_fiscale = jsonReq.get('codFiscale')
         if codice_fiscale in cittadini:
@@ -30,10 +32,10 @@ def GestisciAddCittadino():
 
 
 
-"""
-Questa funzione sta sul SERVER. Riceve il codice fiscale dal client 
-e verifica se il codice e d i dati associati stanno in anagrafe.json
-"""
+
+#Questa funzione sta sul SERVER. Riceve il codice fiscale dal client 
+#e verifica se il codice e d i dati associati stanno in anagrafe.json
+
 
 @api.route('/read_cittadino/<codice_fiscale>', methods=['GET'])
 def read_cittadino(codice_fiscale):

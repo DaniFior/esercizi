@@ -91,7 +91,3 @@ while iFlag==0:
 
     else:
         print("Operazione non disponibile, riprova.")
-
-
-
-
