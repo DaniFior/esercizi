@@ -30,3 +30,4 @@ CREATE TABLE reg_naz(
     FOREIGN KEY(nazione) REFERENCES Nazione(Nome),
     PRIMARY KEY(regione)
 );
+
