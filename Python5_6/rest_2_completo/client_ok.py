@@ -42,6 +42,37 @@ def EseguiOperazione(iOper, sServizio, dDatiToSend):
 
 print("Benvenuti al Comune - sede locale")
 
+def EffettuaPrimoLogin():
+
+   global sUsername, sPassword, sPrivilegio, iPrimoLoginEffettuato
+
+   sUsername=input("Inserisci Username: ")
+   sPassword= input("Inserisci Password: ")
+
+   jsonRequest= {"username"  : sUsername, "password" : sPassword}
+
+   try:
+       api_url =base_url +"/login"
+       response= requests.post(api_url, json=jsonRequest, verify= False )
+
+       if response.status_code == 200:   
+           jsonResponse= response.json()
+           print(jsonResponse)
+           if jsonResponse["Esito"]== "000":
+               sPrivilegio =jsonResponse["Privilegio"]
+               iPrimoLoginEffettuato=1
+   except:
+       print("Problemi di comunicazione con il server!")
+       iPrimoLoginEffettuato = 0
+
+print("Benvenuti al Comune")
+sUsername=""
+sPassword=""
+sPrivilegio=""
+iPrimoLoginEffettuato=0
+while iPrimoLoginEffettuato== 0:
+   EffettuaPrimoLogin()
+
 iFlag = 0
 while iFlag==0:
     print("\nOperazioni disponibili:")
@@ -91,3 +122,7 @@ while iFlag==0:
 
     else:
         print("Operazione non disponibile, riprova.")
+
+
+
+

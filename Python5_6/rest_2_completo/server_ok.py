@@ -7,18 +7,38 @@ api = Flask(__name__)
 file_path = "anagrafe.json"
 cittadini = JsonDeserialize(file_path)
 
+file_path_user = "utenti.json"
+utenti= JsonDeserialize(file_path_user)
+
+@api.route('/login',  methods=['POST'])
+def GestisciLogin():
+   content_type= request.headers.get('content-Type')
+   if content_type == 'application/json':
+       jsonReq= request.json
+       sUsernameInseritoDalClient= jsonReq["username"]
+       if sUsernameInseritoDalClient in utenti:
+           sPasswordInseritaDalClient= jsonReq["password"]
+           if sPasswordInseritaDalClient == utenti[sUsernameInseritoDalClient]["password"]:
+               sPriv = utenti[sUsernameInseritoDalClient]["privilegi"]
+               return jsonify({"Esito": "000", "Msg": "Utente registrato", "Privilegio": sPriv})
+           else:
+               return jsonify({"Esito": "001", "Msg": "Password errata"})
+       else: 
+           return jsonify({"Esito": "001", "Msg": "Utente non registrato"})
+   else:
+       return jsonify({"Esito": "002", "Msg": "ERRORE"})
+
+
                                              
 @api.route('/add_cittadino', methods=['POST'])
 def GestisciAddCittadino():
     content_type = request.headers.get('Content-Type')
     if content_type == 'application/json':
         jsonReq = request.json
-
         
         #prima di tutto verifico utente, password e privilegio 
         #dove utente e password me l'ha inviato il client
         #mentre il privilegio lo vado a leggere nel mio file  (utenti.json)
-        
 
         codice_fiscale = jsonReq.get('codFiscale')
         if codice_fiscale in cittadini:
@@ -32,10 +52,10 @@ def GestisciAddCittadino():
 
 
 
-
-#Questa funzione sta sul SERVER. Riceve il codice fiscale dal client 
-#e verifica se il codice e d i dati associati stanno in anagrafe.json
-
+"""
+Questa funzione sta sul SERVER. Riceve il codice fiscale dal client 
+e verifica se il codice e d i dati associati stanno in anagrafe.json
+"""
 
 @api.route('/read_cittadino/<codice_fiscale>', methods=['GET'])
 def read_cittadino(codice_fiscale):
