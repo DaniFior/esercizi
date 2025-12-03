@@ -9,19 +9,19 @@
         "nome": "gianni",
         "cognome": "de martino",
         "data nascita": "21/05/1980",
-        "codice fiscale": "dctnst34b56h501a"
+        "codice fiscale": "dctnst34b56h501u"
     },
     "dctnst34b56h503e": {
         "nome": "maria",
         "cognome": "de martino",
         "data nascita": "21/05/1980",
-        "codice fiscale": "dctnst34b56h501e"
+        "codice fiscale": "dctnst34b56h501u"
     },
     "dctnst34b56h502w": {
         "nome": "silvia",
         "cognome": "de martino",
         "data nascita": "21/05/1980",
-        "codice fiscale": "dctnst34b56h501w"
+        "codice fiscale": "dctnst34b56h501u"
     },
     "aaaaa": {
         "nome": "Paolo",
@@ -29,10 +29,10 @@
         "data nascita": "24/02/1990",
         "codice fiscale": "aaaaa"
     },
-    "FRVDNL04D07H501E": {
+    "FRVDNL27D01H501U": {
         "nome": "Daniele",
         "cognome": "Fioravanti",
-        "data nascita": "07/04/2004",
-        "codice fiscale": "FRVDNL04D07H501E"
+        "dataNascita": "27/04/2001",
+        "codFiscale": "FRVDNL27D01H501U"
     }
 }
